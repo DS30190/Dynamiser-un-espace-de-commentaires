@@ -95,31 +95,36 @@
               const myForm = document.getElementById("myForm");
               const first_name = document.getElementById("first-name");
               const last_name = document.getElementById("last-name");
-              const messagee = document.getElementById("message");
+              const message = document.getElementById("message");
+              const errorMessage = document.getElementById("error-message");
 
               const mess1 = document.getElementById("mess1");
               const commentaires = document.getElementById("commentaires");
-                                       
+            
+              
               myForm.addEventListener("submit", afficher);
               myForm.addEventListener("submit", clear); 
-              
+          
               function afficher(e) {
-                  e.preventDefault();
-
-                  let prenom = first_name.value;
-                  let nom = last_name.value;
-                  mess1.textContent = ` ${prenom} ${nom} `;
-
-                  let mess = message.value;
-                  commentaires.textContent = ` ${mess}  `;
-                  } 
-
+                  e.preventDefault();  
+                  if (first_name.value.trim() === '' || last_name.value.trim() === '' || message.value.trim() === '') {
+                     errorMessage.style.display = "block";
+                  } else {
+                     errorMessage.style.display = "none";
+            
+                     let prenom = first_name.value;
+                     let nom = last_name.value;
+                     mess1.textContent = ` ${prenom} ${nom} `;
+                     let mess = message.value;
+                     commentaires.textContent = ` ${mess}  `;
+                     } 
+              }
               function clear() {
                   document.getElementById("first-name").value = "";
                   document.getElementById("last-name").value = "";
                   document.getElementById("message").value = "";
                   }
-  
+                 
             </script>
           </div>
         </form>
