@@ -42,8 +42,8 @@
             <div class="flex space-x-4 text-sm text-gray-500">
               <div class="flex-1 py-10 border-t border-gray-200">
                 <h3 class="font-medium text-gray-900" id="mess1"></h3>                
-                <div class="prose prose-sm mt-4 max-w-none text-gray-500" id="commentaires"></div>
-              </div>
+                <div class=" prose prose-sm mt-4 max-w-none text-gray-500"  id="commentaires"></div>
+                </div>
             </div>
           </div>
       <div class="py-10 lg:col-span-2 xl:py-12">
@@ -84,7 +84,7 @@
             </div>
             <div class="mt-1">
               <textarea id="message" name="message" rows="4" maxlength="500" class="block w-full rounded-md border-warm-gray-300 py-3 px-4 text-warm-gray-900 shadow-sm focus:border-teal-500 focus:ring-teal-500" aria-describedby="message-max"></textarea>
-            </div>
+              </div>
           </div>
           <div class="sm:col-span-2 sm:flex sm:justify-end">
             <button type="submit" class="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-teal-500 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 sm:w-auto">
@@ -107,16 +107,23 @@
           
               function afficher(e) {
                   e.preventDefault();  
+                 
                   if (first_name.value.trim() === '' || last_name.value.trim() === '' || message.value.trim() === '') {
                      errorMessage.style.display = "block";
-                  } else {
+                   }
+                  else {
                      errorMessage.style.display = "none";
             
                      let prenom = first_name.value;
                      let nom = last_name.value;
                      mess1.textContent = ` ${prenom} ${nom} `;
                      let mess = message.value;
-                     commentaires.textContent = ` ${mess}  `;
+                    
+                     commentaires.textContent = ` ${mess} `;
+                     commentaires.style.paddingBottom = "2rem";
+                     commentaires.style.borderBottom = "1.5px solid #EEEEEE" ;
+                    
+                     
                      } 
               }
               function clear() {
